@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Projects | Julian Parco</title>
+  </head>
+  <body class="bg-slate-900 text-slate-300 font-sans antialiased min-h-screen">
+    
+    {/* Navigation */}
+    <nav class="max-w-5xl mx-auto px-6 py-8">
+      <a href="/my-portfolio/" class="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-2 transition-colors">
+        &larr; Back to Home
+      </a>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-6 pb-24">
+      
+      <header class="mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">Project Showcase</h1>
+        <p class="text-lg text-slate-400 max-w-2xl">A selection of my technical work, focusing on secure backend architecture, systems engineering, and full-stack development.</p>
+      </header>
+
+      {/* Featured Capstone Project */}
+      <section class="mb-20">
+        <h2 class="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+          <span class="text-blue-500 text-3xl">&starf;</span> Featured Capstone
+        </h2>
+        
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-8 md:p-12 shadow-2xl">
+          <div class="flex flex-col md:flex-row gap-8 justify-between items-start">
+            
+            <div class="max-w-2xl">
+              <h3 class="text-3xl font-bold text-white mb-2">Smart Inventory and Borrowing Management System</h3>
+              <p class="text-blue-400 font-medium mb-6">Web-Based Tracking System &bull; Institutional Defense Passed</p>
+              
+              <p class="text-slate-300 leading-relaxed mb-6">
+                A comprehensive asset management platform engineered to streamline the tracking and borrowing of tools and equipment. The system features robust backend logic to manage database transactions, user permissions, and real-time inventory statuses. Designed with scalability in mind, it is slated for a future open-source release to assist other institutions with hardware management.
+              </p>
+              
+              {/* Tech Stack Tags */}
+              <div class="flex flex-wrap gap-3 mb-8">
+                <span class="bg-slate-900 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-700">PHP</span>
+                <span class="bg-slate-900 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-700">SQL</span>
+                <span class="bg-slate-900 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium border border-slate-700">Backend Architecture</span>
+              </div>
+
+              {/* Action Buttons */}
+              <div class="flex gap-4">
+                <button class="bg-slate-700 text-slate-400 cursor-not-allowed font-medium py-2.5 px-6 rounded-lg transition-colors">
+                  Repository (Preparing for Open Source)
+                </button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Grid for Additional Projects */}
+      <section>
+        <h2 class="text-2xl font-semibold text-white mb-6 border-b border-slate-700 pb-2">Other Technical Work</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Placeholder Card 1 */}
+          <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition-colors">
+            <h3 class="text-xl font-bold text-white mb-2">Project Title Goes Here</h3>
+            <p class="text-slate-400 text-sm mb-4">Brief description of the application, script, or system you built.</p>
+            <div class="flex gap-2">
+              <span class="text-xs text-blue-400 font-mono bg-blue-900/30 px-2 py-1 rounded">Python</span>
+              <span class="text-xs text-blue-400 font-mono bg-blue-900/30 px-2 py-1 rounded">Automation</span>
+            </div>
+          </div>
+          
+          {/* Placeholder Card 2 */}
+          <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition-colors">
+            <h3 class="text-xl font-bold text-white mb-2">Project Title Goes Here</h3>
+            <p class="text-slate-400 text-sm mb-4">Brief description of the application, script, or system you built.</p>
+            <div class="flex gap-2">
+              <span class="text-xs text-blue-400 font-mono bg-blue-900/30 px-2 py-1 rounded">Kotlin</span>
+              <span class="text-xs text-blue-400 font-mono bg-blue-900/30 px-2 py-1 rounded">App Dev</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </body>
+</html>

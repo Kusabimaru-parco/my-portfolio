@@ -1,11 +1,71 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import '../styles/global.css'
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Julian Parco | Portfolio</title>
+  </head>
+  <body class="bg-slate-900 text-slate-300 font-sans antialiased min-h-screen">
+    
+    <main class="max-w-4xl mx-auto px-6 py-24">
+      
+      {/* Hero Section */}
+      <section class="mb-20">
+        <div class="space-y-6">
+          <p class="text-blue-400 font-mono text-sm tracking-wide uppercase">Hi, my name is</p>
+          <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight">Julian Parco.</h1>
+          <h2 class="text-4xl md:text-5xl font-bold text-slate-400">I have build and secure systems.</h2>
+          
+          <p class="max-w-2xl text-lg leading-relaxed mt-6">
+            A highly driven, digitally literate student at PUP, and I am a graduating Information Technology student at PUP ITECH, currently interned at the UP Information Technology Development Center (ITDC) as System Administrator and BES IT at SyCip Gorres Velayo & Co.(SGV & Co.) . I specialize in full stack development, with a strong, certified foundation in cybersecurity. 
+          </p>
+
+          {/* Quick Links / CTA */}
+          <div class="flex gap-4 pt-6">
+            <a href="/my-portfolio/projects" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-colors">
+              View My Work
+            </a>
+			<a href="/my-portfolio/experience" class="bg-slate-800 border border-slate-700 hover:border-blue-500 hover:text-blue-400 text-white font-medium py-3 px-6 rounded-lg transition-all">
+    			Experience
+  			</a>
+			<a href="/my-portfolio/certifications" class="bg-slate-800 border border-slate-700 hover:border-blue-500 hover:text-blue-400 text-white font-medium py-3 px-6 rounded-lg transition-all">
+    			Certifications
+  			</a>
+            <a href="https://github.com/Kusabimaru-parco" target="_blank" class="border border-slate-600 hover:border-slate-400 hover:text-white font-medium py-3 px-6 rounded-lg transition-colors">
+              GitHub Profile
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Grid */}
+      <section class="mb-20">
+        <h3 class="text-2xl font-semibold text-white mb-6 border-b border-slate-700 pb-2">Core Technologies</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-slate-800 p-4 rounded-lg flex items-center gap-3">
+            <span class="text-yellow-400 font-bold">Py</span>
+            <span>Python</span>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-lg flex items-center gap-3">
+            <span class="text-purple-400 font-bold">Kt</span>
+            <span>Kotlin</span>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-lg flex items-center gap-3">
+            <span class="text-blue-300 font-bold">PHP</span>
+            <span>PHP</span>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-lg flex items-center gap-3">
+            <span class="text-orange-400 font-bold">DB</span>
+            <span>SQL / Git / Docker</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </body>
+</html>

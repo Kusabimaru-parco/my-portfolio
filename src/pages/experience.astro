@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Experience | Julian Parco</title>
+  </head>
+  <body class="bg-slate-900 text-slate-300 font-sans antialiased min-h-screen">
+    
+    {/* Navigation */}
+    <nav class="max-w-4xl mx-auto px-6 py-8">
+      <a href="/my-portfolio/" class="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-2 transition-colors">
+        &larr; Back to Home
+      </a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 pb-24">
+      
+      <header class="mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">Experience & Education</h1>
+        <p class="text-lg text-slate-400 max-w-2xl">
+          My professional timeline bridging academic theory with practical, real-world systems engineering and infrastructure support.
+        </p>
+      </header>
+
+      {/* The Timeline Container */}
+      <div class="relative border-l-2 border-slate-700 ml-4 md:ml-6 space-y-12">
+        
+        {/* UP ITDC Internship */}
+        <div class="relative pl-8 md:pl-12">
+          {/* Timeline Node */}
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-900"></div>
+          
+          <div class="mb-1">
+            <span class="text-blue-400 font-mono text-sm tracking-wide">April 2026 - June 2026</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-1">IT Intern (OJT)</h2>
+          <h3 class="text-lg text-slate-400 font-medium mb-4">University of the Philippines ITDC</h3>
+          
+          <p class="text-slate-300 leading-relaxed mb-4">
+            Completed a comprehensive practicum focusing on technical operations within a major academic institution. The role required bridging the gap between theoretical knowledge and practical execution in a live environment.
+          </p>
+          
+          <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6 ml-2">
+            <li>Provided hands-on infrastructure support and troubleshooting.</li>
+            <li>Assisted in systems development tasks to support departmental operations.</li>
+            <li>Engaged in applied cybersecurity training and protocol enforcement.</li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded text-xs font-mono border border-slate-700">Infrastructure Support</span>
+            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded text-xs font-mono border border-slate-700">Systems Development</span>
+            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded text-xs font-mono border border-slate-700">Security</span>
+          </div>
+        </div>
+
+        {/* PUP ITECH Education */}
+        <div class="relative pl-8 md:pl-12">
+          {/* Timeline Node */}
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-slate-900"></div>
+          
+          <div class="mb-1">
+            <span class="text-slate-400 font-mono text-sm tracking-wide">Graduating 2026</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-1">Diploma in Information Technology</h2>
+          <h3 class="text-lg text-slate-400 font-medium mb-4">Polytechnic University of the Philippines - ITECH</h3>
+          
+          <p class="text-slate-300 leading-relaxed mb-4">
+            Rigorous academic program focused on software engineering, database management, and network security. Successfully defended the Smart Inventory and Borrowing Management System capstone project.
+          </p>
+          
+          <ul class="list-disc list-inside text-slate-300 space-y-2 ml-2">
+            <li>Specialized in backend architecture and full-stack development.</li>
+            <li>Led development on major academic software engineering projects.</li>
+          </ul>
+        </div>
+
+      </div>
+    </main>
+  </body>
+</html>
