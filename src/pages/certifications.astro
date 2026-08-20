@@ -7,29 +7,42 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width" />
     <title>Certifications | Julian Parco</title>
   </head>
-  <body class="bg-slate-900 text-slate-300 font-sans antialiased min-h-screen">
+  <body class="certifications-page bg-slate-900 text-slate-300 font-sans antialiased min-h-screen">
+    <div class="hud-background" aria-hidden="true">
+      <div class="hud-grid"></div>
+      <div class="hud-scanline"></div>
+      <div class="hud-orbit"></div>
+    </div>
     
     {/* Navigation */}
-    <nav class="max-w-5xl mx-auto px-6 py-8">
+    <nav class="page-nav max-w-5xl mx-auto px-6 py-8" data-reveal>
       <a href="/my-portfolio/" class="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-2 transition-colors">
-        &larr; Back to Home
+        <span aria-hidden="true">&larr;</span> Return to profile
       </a>
+      <span class="nav-status"><span class="status-dot"></span> SYSTEM ONLINE</span>
     </nav>
 
     <main class="max-w-5xl mx-auto px-6 pb-24">
       
-      <header class="mb-16">
+      <header class="cert-header mb-16" data-reveal>
+        <p class="eyebrow"><span>///</span> Capability archive / 04 credentials</p>
         <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">Licenses & Certifications</h1>
         <p class="text-lg text-slate-400 max-w-2xl">
           Verified credentials demonstrating my proficiency in cybersecurity protocols, network infrastructure, and foundational IT operations.
         </p>
+        <div class="header-readout" aria-label="Certification archive status">
+          <span><strong>04</strong> VERIFIED RECORDS</span>
+          <span><strong>03</strong> DOMAINS</span>
+          <span><strong>100%</strong> COMPLETE</span>
+        </div>
       </header>
 
       {/* Certifications Grid */}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="cert-grid grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Google Cybersecurity Certificate */}
-        <div class="bg-slate-800 border border-slate-700 p-8 rounded-2xl hover:-translate-y-1 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300">
+        <button onclick="document.getElementById('google-modal').showModal()" class="certificate-card w-full text-left bg-slate-800 border border-slate-700 p-8 rounded-2xl hover:-translate-y-1 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300" data-reveal>
+          <div class="card-index">01 <span>CYBER DEFENSE</span></div>
           <div class="flex items-center gap-4 mb-6">
             <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-600 flex items-center justify-center text-xl font-bold text-white">
               <span class="text-blue-500">G</span>
@@ -44,46 +57,347 @@ import '../styles/global.css';
           </p>
           <div class="flex items-center justify-between mt-auto">
             <span class="text-xs font-mono text-slate-500">Completed</span>
-            <a href="#" class="text-sm font-medium text-blue-400 hover:text-blue-300 flex items-center gap-1">
-              Verify Credential <span class="text-lg">&nearr;</span>
-            </a>
+            <span class="text-sm font-medium text-blue-400 flex items-center gap-1">
+              View Certificate <span class="text-lg">&nearr;</span>
+            </span>
           </div>
-        </div>
+        </button>
 
         {/* Cisco Certification */}
-        <div class="bg-slate-800 border border-slate-700 p-8 rounded-2xl hover:-translate-y-1 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300">
+        <button onclick="document.getElementById('introduction-modal').showModal()" class="certificate-card w-full text-left bg-slate-800 border border-slate-700 p-8 rounded-2xl hover:-translate-y-1 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300" data-reveal>
+          <div class="card-index">02 <span>THREAT AWARENESS</span></div>
           <div class="flex items-center gap-4 mb-6">
             <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-600 flex items-center justify-center text-xl font-bold text-white">
               <span class="text-cyan-400">C</span>
             </div>
             <div>
-              <h2 class="text-xl font-bold text-white leading-tight">Cisco Networking Academy</h2>
-              <p class="text-blue-400 text-sm font-medium">Issued by Cisco</p>
+              <h2 class="text-xl font-bold text-white leading-tight">Introduction to Cybersecurity</h2>
+              <p class="text-blue-400 text-sm font-medium">Issued by Cisco Networking Academy</p>
             </div>
           </div>
           <p class="text-slate-300 mb-6 text-sm leading-relaxed">
-            Validation of skills in routing, switching, network applications, protocols, and services. Emphasizes foundational knowledge required to design and implement secure networks.
+            An introduction to fundamental digital defense, covering personal security, the CIA triad, and common threats such as phishing and malware. It further explores organizational defense strategies, including firewall implementation, and outlines career opportunities within the growing cybersecurity field.
           </p>
           <div class="flex items-center justify-between mt-auto">
             <span class="text-xs font-mono text-slate-500">Completed</span>
-            <a href="#" class="text-sm font-medium text-blue-400 hover:text-blue-300 flex items-center gap-1">
-              Verify Credential <span class="text-lg">&nearr;</span>
-            </a>
+            <span class="text-sm font-medium text-blue-400 flex items-center gap-1">
+              View Certificate <span class="text-lg">&nearr;</span>
+            </span>
           </div>
-        </div>
+        </button>
 
-        {/* Placeholder for Future Cert (e.g., ITDC completion or future cert) */}
-        <div class="bg-slate-800/40 border border-slate-700 border-dashed p-8 rounded-2xl flex flex-col items-center justify-center text-center">
-          <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center mb-4">
-            <span class="text-slate-500 text-2xl">+</span>
+        {/* NC II Certification Card (Clickable) */}
+        <button onclick="document.getElementById('ncii-modal').showModal()" class="certificate-card w-full text-left bg-slate-800 border border-slate-700 p-8 rounded-2xl hover:-translate-y-1 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300" data-reveal>
+          <div class="card-index">03 <span>SYSTEMS OPERATIONS</span></div>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-600 flex items-center justify-center text-xl font-bold text-white">
+              <span class="text-yellow-500">N</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-white leading-tight">Computer Systems Servicing NC II</h2>
+              <p class="text-blue-400 text-sm font-medium">Issued by TESDA</p>
+            </div>
           </div>
-          <h2 class="text-lg font-medium text-slate-400 mb-2">Continuous Learning</h2>
-          <p class="text-slate-500 text-sm max-w-xs">
-            Currently pursuing further certifications to expand my expertise in backend architecture and cloud infrastructure.
+          <p class="text-slate-300 mb-6 text-sm leading-relaxed">
+            A TESDA vocational program in the Philippines that trains individuals to install, configure, maintain, and repair computer systems, networks, and servers. Graduates can work as computer service, network, or maintenance technicians.
           </p>
-        </div>
+          <div class="flex items-center justify-between mt-auto">
+            <span class="text-xs font-mono text-slate-500">View Certificate</span>
+            <span class="text-lg text-blue-400">&nearr;</span>
+          </div>
+        </button>
+
+        {/* NC III Certification Card (Clickable) */}
+        <button onclick="document.getElementById('nciii-modal').showModal()" class="certificate-card w-full text-left bg-slate-800 border border-slate-700 p-8 rounded-2xl hover:-translate-y-1 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300" data-reveal>
+          <div class="card-index">04 <span>VISUAL SYSTEMS</span></div>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full bg-slate-900 border border-slate-600 flex items-center justify-center text-xl font-bold text-white">
+              <span class="text-yellow-500">N</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-white leading-tight">NC III Visual Graphic Design</h2>
+              <p class="text-blue-400 text-sm font-medium">Issued by TESDA</p>
+            </div>
+          </div>
+          <p class="text-slate-300 mb-6 text-sm leading-relaxed">
+            A technical-vocational course in the Philippines regulated by the Technical Education and Skills Development Authority (TESDA). It trains students to create vector and raster graphics, design logos, print and electronic media, product packaging, and display booths using industry software like Adobe Photoshop and CorelDRAW.
+          </p>
+          <div class="flex items-center justify-between mt-auto">
+            <span class="text-xs font-mono text-slate-500">View Certificate</span>
+            <span class="text-lg text-blue-400">&nearr;</span>
+          </div>
+        </button>
 
       </div>
+
+      {/* --- MODALS --- */}
+      
+      {/* NC II Modal */}
+      <dialog id="ncii-modal" class="certificate-viewer viewer-dialog backdrop:bg-slate-900/90 bg-transparent p-0 border-none shadow-none outline-none">
+        <div class="viewer-stage relative flex justify-center items-center min-h-screen w-full p-4">
+          <button aria-label="Close certificate viewer" onclick="document.getElementById('ncii-modal').close()" class="viewer-close absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 bg-slate-800 rounded-full text-white text-2xl hover:bg-red-500 hover:scale-110 transition-all flex items-center justify-center shadow-lg z-50">
+            &times;
+          </button>
+          <img 
+              src="/my-portfolio/certificates_images/ncii-cert-watermarked.jpg" 
+            alt="NC II Certificate" 
+            draggable="false"
+            class="viewer-image max-h-[85vh] w-auto max-w-full rounded-lg shadow-2xl border border-slate-700 object-contain" 
+          />
+        </div>
+      </dialog>
+
+      {/* NC III Modal */}
+      <dialog id="nciii-modal" class="certificate-viewer viewer-dialog backdrop:bg-slate-900/90 bg-transparent p-0 border-none shadow-none outline-none">
+        <div class="viewer-stage relative flex justify-center items-center min-h-screen w-full p-4">
+          <button aria-label="Close certificate viewer" onclick="document.getElementById('nciii-modal').close()" class="viewer-close absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 bg-slate-800 rounded-full text-white text-2xl hover:bg-red-500 hover:scale-110 transition-all flex items-center justify-center shadow-lg z-50">
+            &times;
+          </button>
+          <img 
+              src="/my-portfolio/certificates_images/nciii-cert-watermarked.jpg" 
+            alt="NC III Certificate" 
+            draggable="false"
+            class="viewer-image max-h-[85vh] w-auto max-w-full rounded-lg shadow-2xl border border-slate-700 object-contain" 
+          />
+        </div>
+      </dialog>
+
+      {/* Google Cybersecurity Modal */}
+      <dialog id="google-modal" class="certificate-viewer viewer-dialog backdrop:bg-slate-900/90 bg-transparent p-0 border-none shadow-none outline-none">
+        <div class="viewer-stage relative flex justify-center items-center min-h-screen w-full p-4">
+          <button aria-label="Close certificate viewer" onclick="document.getElementById('google-modal').close()" class="viewer-close absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 bg-slate-800 rounded-full text-white text-2xl hover:bg-red-500 hover:scale-110 transition-all flex items-center justify-center shadow-lg z-50">
+            &times;
+          </button>
+          <img
+            src="/my-portfolio/certificates_images/google-cybersecurity.jpg"
+            alt="Google Cybersecurity Professional Certificate"
+            draggable="false"
+            class="viewer-image max-h-[85vh] w-auto max-w-full rounded-lg shadow-2xl border border-slate-700 object-contain"
+          />
+        </div>
+      </dialog>
+
+      {/* Introduction to Cybersecurity Modal */}
+      <dialog id="introduction-modal" class="certificate-viewer viewer-dialog backdrop:bg-slate-900/90 bg-transparent p-0 border-none shadow-none outline-none">
+        <div class="viewer-stage relative flex justify-center items-center min-h-screen w-full p-4">
+          <button aria-label="Close certificate viewer" onclick="document.getElementById('introduction-modal').close()" class="viewer-close absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 bg-slate-800 rounded-full text-white text-2xl hover:bg-red-500 hover:scale-110 transition-all flex items-center justify-center shadow-lg z-50">
+            &times;
+          </button>
+          <img
+            src="/my-portfolio/certificates_images/introduction-to-cybersecurity.jpg"
+            alt="Introduction to Cybersecurity Certificate"
+            draggable="false"
+            class="viewer-image max-h-[85vh] w-auto max-w-full rounded-lg shadow-2xl border border-slate-700 object-contain"
+          />
+        </div>
+      </dialog>
+
     </main>
   </body>
 </html>
+
+<style>
+  :global(html) { scroll-behavior: smooth; }
+
+  .certifications-page {
+    position: relative;
+    overflow-x: hidden;
+    background: #080f1b;
+  }
+
+  .hud-background { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .75; }
+  .hud-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(59, 130, 246, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, .045) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, black, transparent 78%);
+  }
+  .hud-scanline { position: absolute; inset: 0; background: linear-gradient(110deg, transparent 0 45%, rgba(56, 189, 248, .06) 50%, transparent 55%); animation: scan 14s ease-in-out infinite; }
+  .hud-orbit { position: absolute; width: 28rem; height: 28rem; top: 4rem; right: -12rem; border: 1px solid rgba(56, 189, 248, .12); border-radius: 50%; box-shadow: 0 0 0 3rem rgba(56, 189, 248, .02), 0 0 0 7rem rgba(56, 189, 248, .015); }
+  .page-nav, main { position: relative; z-index: 1; }
+  .page-nav { display: flex; align-items: center; justify-content: space-between; }
+  .nav-status, .eyebrow, .card-index, .header-readout { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
+  .nav-status { color: #64748b; font-size: .65rem; }
+  .status-dot { display: inline-block; width: .45rem; height: .45rem; margin-right: .45rem; border-radius: 50%; background: #22c55e; box-shadow: 0 0 10px #22c55e; }
+  .eyebrow { margin-bottom: 1rem; color: #38bdf8; font-size: .7rem; }
+  .eyebrow span { color: #f59e0b; }
+  .cert-header h1 { text-shadow: 0 0 30px rgba(56, 189, 248, .12); }
+  .header-readout { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(100, 116, 139, .3); color: #64748b; font-size: .65rem; }
+  .header-readout strong { color: #bae6fd; font-size: .9rem; margin-right: .35rem; }
+  .cert-grid { align-items: stretch; }
+  .certificate-card { position: relative; display: flex; flex-direction: column; min-height: 23rem; overflow: hidden; background: linear-gradient(145deg, rgba(30, 41, 59, .96), rgba(15, 23, 42, .96)); }
+  .certificate-card::after { content: ''; position: absolute; width: 9rem; height: 9rem; right: -4rem; bottom: -4rem; border: 1px solid rgba(56, 189, 248, .14); border-radius: 50%; }
+  .certificate-card:focus-visible { outline: 2px solid #38bdf8; outline-offset: 4px; }
+  .card-index { display: flex; justify-content: space-between; margin-bottom: 1.5rem; color: #38bdf8; font-size: .62rem; }
+  .card-index span { color: #64748b; }
+  .certificate-card > div:last-child { margin-top: auto; border-top: 1px solid rgba(100, 116, 139, .25); padding-top: 1rem; }
+  .certificate-viewer { background: rgba(8, 15, 27, .96); }
+  .viewer-dialog { inset: 0; width: 100vw; max-width: none; height: 100vh; max-height: none; margin: 0; overflow: hidden; }
+  .certificate-viewer[open] { animation: viewer-in .35s cubic-bezier(.2, .8, .2, 1); }
+  .certificate-viewer::backdrop { background: rgba(2, 6, 23, .88); backdrop-filter: blur(12px); }
+  .certificate-viewer img { animation: image-in .45s .05s both cubic-bezier(.2, .8, .2, 1); }
+  .viewer-close { border: 1px solid rgba(148, 163, 184, .25); }
+  .viewer-stage { width: 100%; height: 100%; min-height: 0; perspective: 1200px; overflow: hidden; }
+  .viewer-image { position: relative; z-index: 2; max-width: calc(100vw - 2rem); max-height: calc(100vh - 7rem); transform: perspective(1200px) scale(1) rotateX(0deg) rotateY(0deg); transform-style: preserve-3d; transform-origin: center; cursor: default; user-select: none; -webkit-user-drag: none; touch-action: none; will-change: transform; transition: filter .25s ease; }
+  .viewer-image.is-rotating { cursor: grab; filter: drop-shadow(0 24px 22px rgba(2, 6, 23, .65)); }
+  .viewer-image.is-dragging { cursor: grabbing; transition: none; }
+  :global(.viewer-tools) { position: absolute; left: 50%; bottom: 1.25rem; z-index: 5; display: flex; align-items: center; gap: .45rem; transform: translateX(-50%); padding: .55rem; border: 1px solid rgba(56, 189, 248, .28); background: rgba(8, 15, 27, .88); box-shadow: 0 12px 40px rgba(2, 6, 23, .55); backdrop-filter: blur(14px); pointer-events: auto; }
+  :global(.viewer-tools button) { min-width: 2.25rem; height: 2.25rem; border: 1px solid rgba(100, 116, 139, .35); color: #bae6fd; background: rgba(30, 41, 59, .75); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .78rem; transition: border-color .2s ease, background .2s ease, color .2s ease; }
+  :global(.viewer-tools button:hover), :global(.viewer-tools button:focus-visible) { border-color: #38bdf8; color: white; background: rgba(14, 116, 144, .35); outline: none; }
+  :global(.viewer-tools button[aria-pressed="true"]) { border-color: #22d3ee; color: #67e8f9; background: rgba(8, 145, 178, .3); box-shadow: 0 0 14px rgba(34, 211, 238, .16); }
+  :global(.zoom-readout) { min-width: 3.5rem !important; color: #64748b !important; background: transparent !important; border-color: transparent !important; }
+  :global(.viewer-hud) { position: absolute; inset: 0; z-index: 4; display: grid; place-items: center; background: rgba(8, 15, 27, .82); pointer-events: none; }
+  :global(.viewer-hud.is-hidden) { animation: hud-out .25s ease forwards; }
+  :global(.hud-loader) { width: min(20rem, 72vw); color: #67e8f9; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; text-align: center; letter-spacing: .12em; text-transform: uppercase; }
+  :global(.hud-loader p) { margin: 0 0 .8rem; color: #e0f2fe; font-size: .7rem; }
+  :global(.hud-loader::after) { content: ''; display: block; height: 2px; background: linear-gradient(90deg, transparent, #22d3ee, transparent); animation: hud-progress .42s ease-in-out infinite; }
+  :global(.viewer-status) { position: absolute; top: 1.5rem; left: 1.5rem; z-index: 3; color: #64748b; font: .62rem ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .1em; text-transform: uppercase; }
+  :global(.viewer-status strong) { color: #4ade80; font-weight: 400; }
+  :global(body), .viewer-dialog { scrollbar-width: thin; scrollbar-color: rgba(71, 85, 105, .8) transparent; }
+  :global(body::-webkit-scrollbar), .viewer-dialog::-webkit-scrollbar { width: 8px; height: 8px; }
+  :global(body::-webkit-scrollbar-track), .viewer-dialog::-webkit-scrollbar-track { background: #080f1b; }
+  :global(body::-webkit-scrollbar-thumb), .viewer-dialog::-webkit-scrollbar-thumb { border: 2px solid #080f1b; border-radius: 999px; background: #475569; }
+  :global(body::-webkit-scrollbar-thumb:hover), .viewer-dialog::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+  [data-reveal] { opacity: 0; transform: translateY(1.25rem); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); }
+  [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  .certificate-card:nth-child(2) { transition-delay: .08s; }
+  .certificate-card:nth-child(3) { transition-delay: .16s; }
+  .certificate-card:nth-child(4) { transition-delay: .24s; }
+
+  @keyframes scan { 0%, 100% { transform: translateX(-35%); opacity: 0; } 18%, 78% { opacity: 1; } 55% { transform: translateX(35%); } }
+  @keyframes viewer-in { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+  @keyframes image-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes hud-progress { from { transform: scaleX(.15); opacity: .25; } 50% { transform: scaleX(1); opacity: 1; } to { transform: scaleX(.15); opacity: .25; } }
+  @keyframes hud-out { to { opacity: 0; visibility: hidden; } }
+
+  @media (max-width: 640px) {
+    .page-nav { align-items: flex-start; gap: 1rem; flex-direction: column; }
+    .nav-status { align-self: flex-end; margin-top: -2.5rem; }
+    .header-readout { gap: .75rem 1rem; }
+    .certificate-card { min-height: 21rem; }
+    :global(.viewer-tools) { width: max-content; max-width: calc(100vw - 2rem); bottom: .75rem; }
+    :global(.viewer-tools button) { min-width: 2rem; }
+    :global(.viewer-status) { top: 1rem; left: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    [data-reveal] { opacity: 1; transform: none; }
+  }
+</style>
+
+<script>
+  const revealItems = document.querySelectorAll('[data-reveal]');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+
+  document.querySelectorAll('.certificate-viewer').forEach((viewer) => {
+    const dialog = viewer as HTMLDialogElement;
+    const stage = dialog.querySelector<HTMLElement>('.viewer-stage');
+    const image = dialog.querySelector<HTMLImageElement>('.viewer-image');
+    if (!stage || !image) return;
+
+    stage.insertAdjacentHTML('beforeend', `
+      <div class="viewer-status">IMAGE ANALYZER // <strong>READY</strong></div>
+      <div class="viewer-hud" aria-live="polite">
+        <div class="hud-loader"><p>Opening image analyzer...</p></div>
+      </div>
+      <div class="viewer-tools" aria-label="Image viewer tools">
+        <button type="button" data-tool="zoom-out" aria-label="Zoom out">-</button>
+        <button type="button" class="zoom-readout" data-tool="zoom-readout" tabindex="-1">100%</button>
+        <button type="button" data-tool="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" data-tool="rotate" aria-pressed="false">3D ROTATE</button>
+        <button type="button" data-tool="reset" aria-label="Reset image view">RESET</button>
+      </div>
+    `);
+
+    const hud = stage.querySelector<HTMLElement>('.viewer-hud');
+    const readout = stage.querySelector<HTMLButtonElement>('[data-tool="zoom-readout"]');
+    const rotateButton = stage.querySelector<HTMLButtonElement>('[data-tool="rotate"]');
+    if (!hud || !readout || !rotateButton) return;
+    let zoom = 1;
+    let rotateX = 0;
+    let rotateY = 0;
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+    let startRotateX = 0;
+    let startRotateY = 0;
+
+    const renderView = () => {
+      image.style.transform = `perspective(1200px) scale(${zoom}) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      readout.textContent = `${Math.round(zoom * 100)}%`;
+    };
+
+    const resetView = () => {
+      zoom = 1;
+      rotateX = 0;
+      rotateY = 0;
+      rotateButton.setAttribute('aria-pressed', 'false');
+      image.classList.remove('is-rotating', 'is-dragging');
+      renderView();
+    };
+
+    const startAnalyzer = () => {
+      resetView();
+      hud.classList.remove('is-hidden');
+      window.setTimeout(() => hud.classList.add('is-hidden'), 480);
+    };
+
+    dialog.addEventListener('toggle', () => {
+      if (dialog.open) startAnalyzer();
+    });
+
+    const handleTool = (tool: string) => {
+      if (tool === 'zoom-in') zoom = Math.min(2.5, zoom + .25);
+      if (tool === 'zoom-out') zoom = Math.max(.5, zoom - .25);
+      if (tool === 'reset') resetView();
+      if (tool === 'rotate') {
+        const enabled = rotateButton.getAttribute('aria-pressed') !== 'true';
+        rotateButton.setAttribute('aria-pressed', String(enabled));
+        image.classList.toggle('is-rotating', enabled);
+      }
+      renderView();
+    };
+
+    stage.querySelectorAll<HTMLButtonElement>('[data-tool]').forEach((button) => {
+      button.addEventListener('click', () => handleTool(button.dataset.tool ?? ''));
+    });
+
+    image.addEventListener('pointerdown', (event: PointerEvent) => {
+      if (!image.classList.contains('is-rotating')) return;
+      event.preventDefault();
+      dragging = true;
+      startX = event.clientX;
+      startY = event.clientY;
+      startRotateX = rotateX;
+      startRotateY = rotateY;
+      image.classList.add('is-dragging');
+      image.setPointerCapture(event.pointerId);
+    });
+
+    image.addEventListener('pointermove', (event: PointerEvent) => {
+      if (!dragging) return;
+      rotateY = Math.max(-45, Math.min(45, startRotateY + (event.clientX - startX) * .55));
+      rotateX = Math.max(-35, Math.min(35, startRotateX - (event.clientY - startY) * .45));
+      renderView();
+    });
+
+    image.addEventListener('pointerup', () => {
+      dragging = false;
+      image.classList.remove('is-dragging');
+    });
+    image.addEventListener('pointercancel', () => {
+      dragging = false;
+      image.classList.remove('is-dragging');
+    });
+  });
+</script>
