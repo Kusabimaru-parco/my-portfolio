@@ -239,9 +239,8 @@ const experiences = [
   .experience-location span:first-child { color: #fbbf24; font-size: 1.1rem; }
   .experience-summary { color: #cbd5e1; line-height: 1.7; }
   
-  /* --- CUSTOM HUD BULLETS --- */
   .experience-details { 
-    list-style: none; /* Strip whatever Tailwind uses */
+    list-style: none; 
     padding-left: 0; 
     color: #94a3b8; 
     line-height: 1.7; 
@@ -250,10 +249,10 @@ const experiences = [
   .experience-details li { 
     position: relative;
     margin-bottom: 0.6rem; 
-    padding-left: 1.25rem; /* Space for custom bullet */
+    padding-left: 1.25rem; 
   }
   .experience-details li::before { 
-    content: '▪'; /* Tech square bullet */
+    content: '▪'; 
     position: absolute;
     left: 0;
     top: 0.05rem;
@@ -261,7 +260,6 @@ const experiences = [
     font-size: 0.9rem;
   }
   
-  /* --- GLASSMORPHISM SKILLS PANEL --- */
   .experience-skills { 
     display: flex; 
     flex-wrap: wrap; 
@@ -297,18 +295,88 @@ const experiences = [
   @keyframes marker-ping { 0% { opacity: .65; transform: scale(.5); } 100% { opacity: 0; transform: scale(3.5); } }
   @keyframes card-in { from { opacity: .3; transform: translateX(1rem); } to { opacity: 1; transform: translateX(0); } }
 
+  /* ========================================================================= */
+  /* --- FULLY RESPONSIVE MOBILE VIEW (850px and below) ---                    */
+  /* ========================================================================= */
   @media (max-width: 850px) {
-    .experience-layout { grid-template-columns: 1fr; }
-    .experience-sidebar { border-right: 0; border-bottom: 1px solid rgba(71,85,105,.5); height: auto; }
-    .timeline-list { display: flex; overflow-x: auto; padding: .7rem; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
-    .timeline-node { min-width: 14rem; border-left: 0; border-bottom: 1px solid #334155; scroll-snap-align: start; }
-    .timeline-node:hover, .timeline-node.active { border-left: 0; border-bottom-color: #22d3ee; }
+    /* 1. Make the outer shell full-bleed so we don't waste screen width */
+    .experience-shell { padding-left: 0; padding-right: 0; }
+    .experience-header, .experience-nav, .timeline-topbar { padding-left: 1.5rem; padding-right: 1.5rem; }
+    
+    /* 2. Switch the layout to a vertical stack */
+    .experience-layout { 
+      display: flex; 
+      flex-direction: column; 
+      border-left: 0; 
+      border-right: 0; 
+      border-radius: 0; 
+    }
+    
+    /* 3. The Sidebar (Timeline) sits at the top */
+    .experience-sidebar { 
+      order: 1; /* Explicitly forced to the top */
+      border-right: 0; 
+      border-bottom: 1px solid rgba(71,85,105,.5); 
+      height: auto; 
+    }
+    
+    /* Make the timeline swipeable horizontally */
+    .timeline-list { 
+      display: flex; 
+      flex-direction: row; 
+      flex-wrap: nowrap; 
+      overflow-x: auto; 
+      padding: 1rem; 
+      gap: 1rem;
+      scroll-snap-type: x mandatory; 
+      -webkit-overflow-scrolling: touch; 
+      scrollbar-width: none; /* Hide scrollbar Firefox */
+    }
+    .timeline-list::-webkit-scrollbar { display: none; } /* Hide scrollbar Safari/Chrome */
+    
+    /* Ensure nodes don't shrink and look like clean buttons */
+    .timeline-node { 
+      flex: 0 0 16rem; /* Lock width to 16rem */
+      min-width: 16rem;
+      scroll-snap-align: center; 
+      border-left: 0; 
+      border-bottom: 2px solid transparent; 
+      padding: 1rem;
+      background: rgba(15,23,42,0.6);
+      border-radius: 0.5rem;
+    }
+    .timeline-node:hover, .timeline-node.active { 
+      border-left: 0; 
+      border-bottom-color: #22d3ee; 
+      background: rgba(14, 116, 144, 0.3);
+    }
     .node-line { display: none; }
     
-    .map-signal { left: 50%; top: 40%; }
-    .panel-caption, .map-coordinates { left: 1rem; }
-    .experience-content { padding-top: 20rem; } 
-    .experience-card { margin: 1rem; width: calc(100% - 2rem); }
+    /* 4. Map acts as a fixed-height window in the middle */
+    .map-wrap { 
+      order: 2; /* Sits directly below the timeline */
+      position: relative; 
+      width: 100%; 
+      height: 22rem; /* Perfect height for phones */
+      inset: auto; 
+    }
+    .map-signal { left: 50%; top: 50%; }
+    .panel-caption, .map-coordinates { left: 1.5rem; }
+    
+    /* 5. Experience Content and Card sit securely at the bottom */
+    .experience-content { 
+      order: 3; 
+      position: relative; 
+      display: block; 
+      padding: 1.5rem; 
+      pointer-events: auto; 
+    }
+    .experience-card { 
+      margin: 0; /* Clear desktop margins */
+      width: 100%; /* Take up the entire padding area */
+      max-width: 100%; 
+      box-sizing: border-box; /* Protect from width overflow */
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -383,7 +451,6 @@ const experiences = [
     $('#experience-summary').textContent = record.summary;
     $('#experience-details').innerHTML = record.details.map((detail) => `<li>${detail}</li>`).join('');
     
-    // DYNAMIC COLOR PALETTE FOR SKILLS
     const skillColors = [
       { text: '#38bdf8', border: 'rgba(56, 189, 248, 0.3)', bg: 'rgba(56, 189, 248, 0.1)' },   // Cyan
       { text: '#a78bfa', border: 'rgba(167, 139, 250, 0.3)', bg: 'rgba(167, 139, 250, 0.1)' }, // Purple
@@ -410,17 +477,18 @@ const experiences = [
       fallbackPing.style.top = `${y}%`;
       
       const isMobile = window.innerWidth <= 850;
-      const targetX = isMobile ? '50vw' : '38vw';
-      const targetY = isMobile ? '40vh' : '50vh';
-      const zoomScale = 3.8;
+      const targetX = isMobile ? '50%' : '38vw';
+      // UPDATED MOBILE Y-AXIS: Now accurately centers the pin inside the 22rem map container
+      const targetY = isMobile ? '11rem' : '50vh'; 
+      const zoomScale = isMobile ? 3.0 : 3.8;
       
       mapVisual.style.transform = `translate(calc(${targetX} - ${x}% * ${zoomScale}), calc(${targetY} - ${y}% * ${zoomScale})) scale(${zoomScale})`;
     };
 
     if (isInitialLoad) {
       const isMobile = window.innerWidth <= 850;
-      const targetX = isMobile ? '50vw' : '38vw';
-      const targetY = isMobile ? '40vh' : '50vh';
+      const targetX = isMobile ? '50%' : '38vw';
+      const targetY = isMobile ? '11rem' : '50vh';
       const initialScale = 1.2;
       
       mapVisual.style.transform = `translate(calc(${targetX} - 50% * ${initialScale}), calc(${targetY} - 50% * ${initialScale})) scale(${initialScale})`;
@@ -431,8 +499,8 @@ const experiences = [
       }, 1400); 
     } else {
       const isMobile = window.innerWidth <= 850;
-      const targetX = isMobile ? '50vw' : '38vw';
-      const targetY = isMobile ? '40vh' : '50vh';
+      const targetX = isMobile ? '50%' : '38vw';
+      const targetY = isMobile ? '11rem' : '50vh';
       const outScale = 1.8;
       
       mapVisual.style.transform = `translate(calc(${targetX} - ${x}% * ${outScale}), calc(${targetY} - ${y}% * ${outScale})) scale(${outScale})`;
