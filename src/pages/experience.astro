@@ -1,83 +1,459 @@
 ---
 import '../styles/global.css';
+
+const experiences = [
+  { id: 'qeci', year: '2021 - 2023', title: 'Senior High School TVL - ICT', organization: 'Quezonian Education College Inc.', location: 'Atimonan, Quezon', region: 'ATIMONAN / QUEZON', marker: 'quezon', initials: 'QE', logos: ['/my-portfolio/images/QECILogo.png'], kind: 'Education', summary: 'Graduated with High Honors from the TVL-ICT track, building the practical foundation that led into systems support, programming, and design.', details: ['Computer hardware setup, network configuration, and PC repair.', 'Web design, illustration, and digital art.', 'Foundations of object-oriented programming.'], skills: ['Computer Systems Servicing', 'Animation & Visual Graphics', 'Programming'] },
+  { id: 'pup-first', year: '2023 - 2024', title: '1st Year College', organization: 'Polytechnic University of the Philippines - Manila', location: 'Sta. Mesa, Manila', region: 'PUP / MANILA', marker: 'manila', initials: 'PUP', logos: ['/my-portfolio/images/PUPLogo.png'], kind: 'Education', summary: "Started the Diploma in Information Technology at PUP ITECH and completed both semesters as a President's Lister with a 1.19 GWA.", details: ['Strengthened C and C++ object-oriented programming.', 'Studied basic electronics, hardware, and troubleshooting.', 'Built foundations in computing, discrete structures, and algorithmic reasoning.'], skills: ['Introduction to Computing', 'Discrete Structures', 'Basic Electronics', 'Computer Programming'] },
+  { id: 'tesda-css', year: '2024', title: 'TESDA NC II Computer Systems Servicing', organization: 'Mindbank Training and Skills Corporation', location: 'Quezon City', region: 'MINDBANK / QUEZON CITY', marker: 'quezon-city', initials: 'MB', logos: ['/my-portfolio/images/TESDALogo.png'], kind: 'Certification', summary: 'Completed the TESDA Computer Systems Servicing NC II program with hands-on work across hardware, networks, servers, and maintenance.', details: ['Installed operating systems, drivers, and applications.', 'Configured routers, Wi-Fi, cabling, and local networks.', 'Performed preventive maintenance and troubleshooting.'], skills: ['Troubleshooting', 'Networking', 'Computer Systems Setup'] },
+  { id: 'pup-second', year: '2024 - 2025', title: '2nd Year College', organization: 'Polytechnic University of the Philippines - Manila', location: 'Sta. Mesa, Manila', region: 'PUP / MANILA', marker: 'manila', initials: 'PUP', logos: ['/my-portfolio/images/PUPLogo.png'], kind: 'Education', summary: "Expanded the Diploma in Information Technology with programming, data, networking, and Linux administration, completing both semesters as a President's Lister with a 1.3 GWA.", details: ['Developed with C#, Java, HTML, CSS, and JavaScript.', 'Studied data structures, algorithms, DBMS, and information management.', 'Practiced Linux installation, user management, monitoring, security, and recovery.'], skills: ['Computer Programming', 'Network Administration', 'Data Structures', 'Linux', 'SQL'] },
+  { id: 'sgv', year: '2025', title: 'Summer Term OJT / BES IT Intern', organization: 'SyCip Gorres Velayo & Co. (SGV)', location: 'Makati City', region: 'SGV / MAKATI', marker: 'makati', initials: 'SGV', logos: ['/my-portfolio/images/SGVLogo.png'], kind: 'Professional Experience', summary: 'Completed the required 300-hour summer OJT supporting daily IT operations, device deployment, employee support, and asset inventory.', details: ['Set up, troubleshot, and repaired employee laptops.', 'Handled device deployment and turnover for new hires and replacements.', 'Maintained accurate IT asset records and collaborated with IT teams.'], skills: ['Customer Service', 'Troubleshooting', 'Asset Inventory'] },
+  { id: 'pup-third', year: '2025', title: '3rd Year College - 1st Semester', organization: 'Polytechnic University of the Philippines - Manila', location: 'Sta. Mesa, Manila', region: 'PUP / MANILA', marker: 'manila', initials: 'PUP', logos: ['/my-portfolio/images/PUPLogo.png'], kind: 'Education', summary: 'Prepared for the capstone through deeper work in software engineering, multimedia, system analysis, and database administration.', details: ['Prepared the capstone research and system analysis.', 'Advanced Java, database management, and project management skills.', 'Enhanced multimedia work with Photoshop and Premiere Pro.'], skills: ['Capstone', 'Research', 'Advanced Programming', 'Database Administration'] },
+  { id: 'cybersecurity', year: '2026', title: 'Self-Paced Cybersecurity', organization: 'Google and Cisco Networking Academy', location: 'Quezon City', region: 'REMOTE / QUEZON CITY', marker: 'quezon-city', initials: 'CY', logos: ['/my-portfolio/images/GOOGLELogo.png', '/my-portfolio/images/CISCOLogo.png'], kind: 'Professional Development', summary: 'Built a focused cybersecurity foundation through independent study and completed professional programs from Google and Cisco Networking Academy.', details: ['Completed Introduction to Cybersecurity by Cisco Networking Academy.', "Completed Google's Professional Cybersecurity certificate program.", 'Practiced Python, Linux, SQL, detection, response, and network security concepts.'], skills: ['Cybersecurity', 'Python', 'Linux and SQL', 'Network Security', 'Detection and Response'] },
+  { id: 'up-itdc', year: '2026', title: 'System Administrator Intern / Capstone Developer', organization: 'UP Information Technology Development Center', location: 'Quezon City', region: 'UP ITDC / QUEZON CITY', marker: 'quezon-city', initials: 'UP', logos: ['/my-portfolio/images/UPLogo.png'], kind: 'Professional Experience', summary: 'Completed a 300-hour OJT as a System Administrator Intern while developing and defending the Smart Inventory and Borrowing Management System capstone.', details: ["Managed, configured, and deployed UP services, systems, servers, and computers while supporting tickets and portal resources.", 'Developed the capstone as a full-stack developer for the PUP ITECH tools laboratory.', 'Conducted a self-led VAPT, joined cybersecurity training, and successfully defended the capstone.'], skills: ['System Administration', 'Infrastructure Support', 'Systems Development', 'Cybersecurity', 'Capstone'] },
+  { id: 'tesda-vgd', year: '2024', title: 'TESDA NC III Visual Graphic Design', organization: 'High Performance International Academy Inc.', location: 'Philippines', region: 'HPIA / TESDA', marker: 'manila', initials: 'HP', logos: ['/my-portfolio/images/TESDALogo.png'], kind: 'Certification', summary: 'Completed TESDA NC III training in visual graphic design, combining visual communication with the technical foundation of the portfolio.', details: ['Created logos, print media, interfaces, displays, and packaging.', 'Worked with Photoshop and SketchUp across practical design outputs.'], skills: ['Visual Graphic Design', 'Photoshop', 'SketchUp'] },
+  { id: 'graduation', year: 'September 2026', title: 'Graduating as DIT', organization: 'PUP Manila - ITECH', location: 'Philippine International Convention Center', region: 'PUP / MANILA', marker: 'manila', initials: 'PUP', logos: ['/my-portfolio/images/PUPLogo.png'], kind: 'Milestone', summary: 'Completing the Diploma in Information Technology after defending the Smart Inventory and Borrowing Management System capstone.', details: ['Career focus: cybersecurity and full-stack development.', 'Led major academic software engineering projects.'], skills: ['Information Technology', 'Cybersecurity', 'Full-Stack Development'] }
+];
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Experience | Julian Parco</title>
   </head>
-  <body class="bg-slate-900 text-slate-300 font-sans antialiased min-h-screen">
+  <body class="experience-page bg-slate-900 text-slate-300 font-sans antialiased min-h-screen">
+    <div class="experience-atmosphere" aria-hidden="true"><div class="experience-grid"></div><div class="experience-scan"></div></div>
     
-    {/* Navigation */}
-    <nav class="max-w-4xl mx-auto px-6 py-8">
+    <nav class="experience-nav max-w-6xl mx-auto px-6 py-8">
       <a href="/my-portfolio/" class="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-2 transition-colors">
-        &larr; Back to Home
+        <span aria-hidden="true">&larr;</span> Return to profile
       </a>
+      <span class="nav-status"><span class="status-dot"></span> CAREER LOG ONLINE</span>
     </nav>
-
-    <main class="max-w-4xl mx-auto px-6 pb-24">
-      
-      <header class="mb-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">Experience & Education</h1>
-        <p class="text-lg text-slate-400 max-w-2xl">
-          My professional timeline bridging academic theory with practical, real-world systems engineering and infrastructure support.
-        </p>
+    
+    <main class="experience-shell max-w-6xl mx-auto px-6 pb-20">
+      <header class="experience-header" data-reveal>
+        <p class="experience-eyebrow"><span>///</span> Operational history / timeline interface</p>
+        <h1>Experience &amp; Education</h1>
+        <p>From Atimonan, Quezon to PUP ITECH and professional systems work, this is the route behind my technical foundation.</p>
       </header>
-
-      {/* The Timeline Container */}
-      <div class="relative border-l-2 border-slate-700 ml-4 md:ml-6 space-y-12">
+      
+      <section class="timeline-console" aria-label="Experience timeline">
+        <div class="timeline-topbar">
+          <div class="timeline-label"><span class="pulse-mark"></span> FIELD TIMELINE</div>
+          <div class="timeline-progress"><span id="timeline-progress-bar"></span></div>
+          <div class="timeline-count"><strong id="timeline-current">10</strong> / {String(experiences.length).padStart(2, '0')}</div>
+          <div class="timeline-actions">
+            <button id="previous-button" type="button" aria-label="Previous experience">&larr;</button>
+            <button id="next-button" type="button" aria-label="Next experience">&rarr;</button>
+          </div>
+        </div>
         
-        {/* UP ITDC Internship */}
-        <div class="relative pl-8 md:pl-12">
-          {/* Timeline Node */}
-          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-900"></div>
+        <div class="experience-layout">
           
-          <div class="mb-1">
-            <span class="text-blue-400 font-mono text-sm tracking-wide">April 2026 - June 2026</span>
+          <div class="map-wrap">
+            <div class="map-visual" id="map-visual">
+              <img class="philippines-map" src="/my-portfolio/images/Map_of_the_Philippines.svg" alt="Map of the Philippines" />
+              <div id="fallback-marker-ping" class="map-marker-ping"></div>
+              <div id="fallback-marker" class="map-marker"></div>
+            </div>
+            
+            <div class="panel-caption">LOCATION TRACKING <span id="map-location">ATIMONAN / QUEZON</span></div>
+            <div class="map-coordinates">PH ARCHIVE<br /><span id="map-coordinates-value">13.95894 N / 121.88084 E</span></div>
+            <div class="map-signal"></div>
+            <div class="map-footer"><span><i class="legend-dot"></i> ACTIVE LOCATION</span><span>INTERNAL DATABASE</span></div>
           </div>
-          <h2 class="text-2xl font-bold text-white mb-1">IT Intern (OJT)</h2>
-          <h3 class="text-lg text-slate-400 font-medium mb-4">University of the Philippines ITDC</h3>
-          
-          <p class="text-slate-300 leading-relaxed mb-4">
-            Completed a comprehensive practicum focusing on technical operations within a major academic institution. The role required bridging the gap between theoretical knowledge and practical execution in a live environment.
-          </p>
-          
-          <ul class="list-disc list-inside text-slate-300 space-y-2 mb-6 ml-2">
-            <li>Provided hands-on infrastructure support and troubleshooting.</li>
-            <li>Assisted in systems development tasks to support departmental operations.</li>
-            <li>Engaged in applied cybersecurity training and protocol enforcement.</li>
-          </ul>
 
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded text-xs font-mono border border-slate-700">Infrastructure Support</span>
-            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded text-xs font-mono border border-slate-700">Systems Development</span>
-            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded text-xs font-mono border border-slate-700">Security</span>
+          <aside class="experience-sidebar" aria-label="Select an experience">
+            <div class="sidebar-heading">MISSION LOG <span>SELECT NODE</span></div>
+            <div class="timeline-list">
+              {experiences.map((experience, index) => (
+                <button class:list={{ 'timeline-node': true, active: index === 0 }} data-index={index} type="button">
+                  <span class="node-line"><i></i></span>
+                  <span class="node-copy"><small>{experience.year}</small><strong>{experience.title}</strong><em>{experience.kind}</em></span>
+                </button>
+              ))}
+            </div>
+          </aside>
+          
+          <div class="experience-content">
+            <article class="experience-card" data-reveal aria-live="polite">
+              <div class="experience-card-top"><span id="experience-kind">MILESTONE</span><span id="experience-year">SEPTEMBER 2026</span></div>
+              <div class="experience-card-heading">
+                <div class="logo-slot" id="experience-logo-container">
+                  <span id="experience-logo">PUP</span>
+                </div>
+                <div><h2 id="experience-title">Graduating as DIT</h2><h3 id="experience-organization">PUP Manila - ITECH</h3></div>
+              </div>
+              <p class="experience-location"><span aria-hidden="true">⌖</span> <span id="experience-location">PUP / MANILA</span></p>
+              <p id="experience-summary" class="experience-summary"></p>
+              <ul id="experience-details" class="experience-details"></ul>
+              
+              <div id="experience-skills" class="experience-skills"></div>
+            </article>
           </div>
+
         </div>
-
-        {/* PUP ITECH Education */}
-        <div class="relative pl-8 md:pl-12">
-          {/* Timeline Node */}
-          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-slate-900"></div>
-          
-          <div class="mb-1">
-            <span class="text-slate-400 font-mono text-sm tracking-wide">Graduating 2026</span>
-          </div>
-          <h2 class="text-2xl font-bold text-white mb-1">Diploma in Information Technology</h2>
-          <h3 class="text-lg text-slate-400 font-medium mb-4">Polytechnic University of the Philippines - ITECH</h3>
-          
-          <p class="text-slate-300 leading-relaxed mb-4">
-            Rigorous academic program focused on software engineering, database management, and network security. Successfully defended the Smart Inventory and Borrowing Management System capstone project.
-          </p>
-          
-          <ul class="list-disc list-inside text-slate-300 space-y-2 ml-2">
-            <li>Specialized in backend architecture and full-stack development.</li>
-            <li>Led development on major academic software engineering projects.</li>
-          </ul>
-        </div>
-
-      </div>
+      </section>
     </main>
+
+    <div id="experience-loader" class="experience-loader" aria-live="polite">
+      <div>
+        <span class="loader-crosshair">+</span>
+        <p>Initializing Map...</p>
+        <span class="loader-bar"></span>
+      </div>
+    </div>
   </body>
 </html>
+
+<style>
+  :global(html) { scroll-behavior: smooth; }
+  .experience-page { position: relative; overflow-x: hidden; background: #080f1b; }
+  .experience-atmosphere { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .7; }
+  .experience-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(59,130,246,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,.045) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(to bottom, black, transparent 80%); }
+  .experience-scan { position: absolute; inset: 0; background: linear-gradient(105deg, transparent 0 42%, rgba(34,211,238,.05) 50%, transparent 58%); animation: experience-scan 16s ease-in-out infinite; }
+  .experience-nav, .experience-shell { position: relative; z-index: 1; }
+  .experience-nav { display: flex; justify-content: space-between; align-items: center; }
+  .nav-status, .experience-eyebrow, .timeline-label, .timeline-count, .sidebar-heading, .panel-caption, .map-footer, .experience-card-top, .map-coordinates { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .1em; text-transform: uppercase; }
+  .nav-status { color: #64748b; font-size: .65rem; }
+  .status-dot { display: inline-block; width: .45rem; height: .45rem; margin-right: .45rem; border-radius: 50%; background: #22c55e; box-shadow: 0 0 10px #22c55e; }
+  .experience-header { max-width: 46rem; margin: 2rem 0 3rem; }
+  .experience-eyebrow { color: #38bdf8; font-size: .7rem; margin-bottom: 1rem; }
+  .experience-eyebrow span { color: #f59e0b; }
+  .experience-header h1 { margin: 0 0 1rem; color: #f8fafc; font-size: clamp(2.5rem, 6vw, 4.75rem); line-height: .98; letter-spacing: -.03em; }
+  .experience-header > p:last-child { color: #94a3b8; font-size: 1.08rem; line-height: 1.7; }
+
+  .timeline-console { position: relative; }
+  .timeline-topbar { display: flex; align-items: center; gap: 1.25rem; min-height: 4.3rem; padding: .7rem 1rem .7rem 1.25rem; border-bottom: 1px solid rgba(71,85,105,.55); background: rgba(15,23,42,.55); position: relative; z-index: 5; }
+  .timeline-label { color: #67e8f9; font-size: .68rem; white-space: nowrap; }
+  .pulse-mark { display: inline-block; width: .45rem; height: .45rem; margin-right: .5rem; border-radius: 50%; background: #22d3ee; box-shadow: 0 0 12px #22d3ee; }
+  .timeline-progress { height: 2px; flex: 1; background: #1e293b; }
+  .timeline-progress span { display: block; height: 100%; background: #22d3ee; box-shadow: 0 0 10px #22d3ee; transition: width .5s ease; }
+  .timeline-count { color: #64748b; font-size: .68rem; white-space: nowrap; }
+  .timeline-count strong { color: #bae6fd; }
+  .timeline-actions { display: flex; gap: .4rem; }
+  .timeline-actions button { width: 2.25rem; height: 2.25rem; border: 1px solid #334155; color: #bae6fd; background: #1e293b; cursor: pointer; transition: all 0.2s; }
+  .timeline-actions button:hover, .timeline-actions button:focus-visible { border-color: #22d3ee; color: white; outline: none; }
+
+  .experience-layout { display: grid; grid-template-columns: 18rem 1fr; min-height: 46rem; position: relative; overflow: hidden; border: 1px solid rgba(71,85,105,.55); border-top: 0; }
+  
+  .map-wrap { position: absolute; inset: 0; background: #080f1b; z-index: 0; overflow: hidden; }
+  
+  .map-visual {
+    position: absolute;
+    top: 0; left: 0; 
+    width: 100vw; max-width: 50rem;
+    aspect-ratio: 1000 / 1572;
+    transform-origin: 0 0; 
+    transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+    will-change: transform;
+  }
+  
+  .philippines-map { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: .75; filter: invert(82%) sepia(19%) saturate(1060%) hue-rotate(153deg) brightness(76%) contrast(88%) drop-shadow(0 0 18px rgba(34,211,238,.2)); }
+  
+  .map-marker { 
+    position: absolute;
+    width: 7px; height: 7px; 
+    margin-top: -3.5px; margin-left: -3.5px; 
+    background: #fbbf24;
+    border: 1px solid #fff; 
+    border-radius: 50%;
+    box-shadow: 0 0 8px #fbbf24; 
+    z-index: 2;
+    transition: left 0.8s cubic-bezier(0.22, 1, 0.36, 1), top 0.8s cubic-bezier(0.22, 1, 0.36, 1); 
+  }
+  
+  .map-marker-ping { 
+    position: absolute;
+    width: 20px; height: 20px;
+    margin-top: -10px; margin-left: -10px; 
+    background: rgba(251, 191, 36, 0.4); 
+    border-radius: 50%;
+    z-index: 1;
+    animation: marker-ping 2s ease-out infinite; 
+    transition: left 0.8s cubic-bezier(0.22, 1, 0.36, 1), top 0.8s cubic-bezier(0.22, 1, 0.36, 1); 
+  }
+
+  .panel-caption { position: absolute; top: 1.5rem; left: 19.5rem; z-index: 1; color: #64748b; font-size: .6rem; }
+  .panel-caption span { color: #67e8f9; }
+  .map-coordinates { position: absolute; bottom: 1.5rem; left: 19.5rem; z-index: 1; color: #64748b; font-size: .56rem; line-height: 1.7; background: rgba(8,15,27,0.75); padding: 0.3rem 0.6rem; border-radius: 4px; backdrop-filter: blur(4px); }
+  .map-coordinates span { color: #38bdf8; }
+  .map-signal { position: absolute; top: 50%; left: 38%; width: 4rem; height: 4rem; border: 1px solid rgba(34,211,238,.2); border-radius: 50%; transform: translate(-50%,-50%); animation: signal-pulse 3s ease-out infinite; pointer-events: none; z-index: 1; }
+  .map-footer { position: absolute; top: 1.5rem; right: 1.5rem; z-index: 1; display: flex; flex-direction: column; gap: 0.5rem; text-align: right; color: #64748b; font-size: .56rem; pointer-events: none; }
+  .legend-dot { display: inline-block; width: .42rem; height: .42rem; margin-right: .4rem; border-radius: 50%; background: #fbbf24; }
+
+  .experience-sidebar { position: relative; z-index: 2; border-right: 1px solid rgba(71,85,105,.5); background: rgba(8, 15, 27, 0.55); backdrop-filter: blur(8px); display: flex; flex-direction: column; height: 100%; }
+  .sidebar-heading { display: flex; justify-content: space-between; padding: 1.25rem; color: #64748b; font-size: .6rem; border-bottom: 1px solid rgba(71,85,105,.4); background: rgba(8,15,27,0.6); }
+  .sidebar-heading span { color: #38bdf8; }
+  .timeline-list { padding: .7rem; overflow-y: auto; flex: 1; }
+  .timeline-node { position: relative; display: flex; width: 100%; gap: .8rem; padding: .8rem .55rem; border: 0; border-left: 1px solid rgba(51, 65, 85, 0.5); color: #94a3b8; text-align: left; background: transparent; cursor: pointer; transition: all .2s ease; }
+  .timeline-node:hover, .timeline-node.active { border-left-color: #22d3ee; color: #e0f2fe; background: rgba(14, 116, 144, 0.2); }
+  .node-line { position: relative; display: block; width: .55rem; flex: 0 0 .55rem; }
+  .node-line i { position: absolute; top: .3rem; left: -.78rem; width: .5rem; height: .5rem; border: 1px solid #475569; border-radius: 50%; background: #0f172a; }
+  .timeline-node.active .node-line i { border-color: #22d3ee; background: #22d3ee; box-shadow: 0 0 10px #22d3ee; }
+  .node-copy { display: flex; flex-direction: column; gap: .22rem; }
+  .node-copy small, .node-copy em { font: .58rem ui-monospace, SFMono-Regular, Consolas, monospace; font-style: normal; text-transform: uppercase; }
+  .node-copy small { color: #38bdf8; }
+  .node-copy strong { color: inherit; font-size: .8rem; line-height: 1.3; }
+  .node-copy em { color: #64748b; }
+
+  .experience-content { position: relative; z-index: 2; padding: 0; display: flex; align-items: flex-end; justify-content: flex-end; pointer-events: none; }
+  .experience-card { 
+    margin: 2rem; 
+    pointer-events: auto; 
+    min-width: 0; 
+    width: min(28rem, calc(100% - 4rem)); 
+    padding: 1.5rem; 
+    border: 0; 
+    border-left: 2px solid #22d3ee; 
+    background: rgba(8, 15, 27, 0.55); 
+    backdrop-filter: blur(8px); 
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); 
+    animation: card-in .45s ease; 
+  }
+  
+  .experience-card-top { display: flex; justify-content: space-between; gap: 1rem; color: #38bdf8; font-size: .62rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(71,85,105,.4); }
+  .experience-card-top span:last-child { color: #94a3b8; }
+  .experience-card-heading { display: flex; gap: 1rem; align-items: center; margin: 1.5rem 0 .75rem; }
+  
+  .logo-slot { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 0.4rem;
+    min-width: 3.6rem; 
+    height: 3.6rem; 
+    flex: 0 0 auto; 
+    border: 1px solid #0e7490; 
+    color: #67e8f9; 
+    background: rgba(15,36,52,0.4); 
+    font: .75rem ui-monospace, SFMono-Regular, Consolas, monospace; 
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+  }
+  
+  .experience-card h2 { margin: 0 0 .35rem; color: #f8fafc; font-size: clamp(1.35rem, 3vw, 2.1rem); line-height: 1.05; }
+  .experience-card h3 { margin: 0; color: #94a3b8; font-size: .95rem; font-weight: 500; line-height: 1.4; }
+  .experience-location { margin: 0 0 1.5rem; color: #38bdf8; font: .65rem ui-monospace, SFMono-Regular, Consolas, monospace; text-transform: uppercase; }
+  .experience-location span:first-child { color: #fbbf24; font-size: 1.1rem; }
+  .experience-summary { color: #cbd5e1; line-height: 1.7; }
+  
+  /* --- CUSTOM HUD BULLETS --- */
+  .experience-details { 
+    list-style: none; /* Strip whatever Tailwind uses */
+    padding-left: 0; 
+    color: #94a3b8; 
+    line-height: 1.7; 
+    margin-top: 0.8rem; 
+  }
+  .experience-details li { 
+    position: relative;
+    margin-bottom: 0.6rem; 
+    padding-left: 1.25rem; /* Space for custom bullet */
+  }
+  .experience-details li::before { 
+    content: '▪'; /* Tech square bullet */
+    position: absolute;
+    left: 0;
+    top: 0.05rem;
+    color: #22d3ee; 
+    font-size: 0.9rem;
+  }
+  
+  /* --- GLASSMORPHISM SKILLS PANEL --- */
+  .experience-skills { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: .5rem; 
+    margin-top: 1.5rem; 
+    padding: 1.25rem; 
+    background: rgba(11, 18, 33, 0.8); 
+    border-top: 1px solid rgba(56, 189, 248, 0.25); 
+    border-radius: 0.5rem; 
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.5); 
+  }
+  .experience-skills span { 
+    padding: .35rem .55rem; 
+    border: 1px solid; 
+    font: .62rem ui-monospace, SFMono-Regular, Consolas, monospace; 
+    border-radius: 0.25rem;
+  }
+
+  .experience-loader { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; background: #080f1b; animation: loader-out .5s 1.2s ease forwards; pointer-events: none; }
+  .experience-loader > div { width: min(20rem, 70vw); text-align: center; }
+  .loader-crosshair { display: block; margin-bottom: 1rem; color: #22d3ee; font-size: 2rem; animation: crosshair-spin 1s linear infinite; }
+  .experience-loader p { margin: 0 0 .8rem; color: #e0f2fe; font: .7rem ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .16em; text-transform: uppercase; }
+  .loader-bar { display: block; height: 2px; background: linear-gradient(90deg, transparent, #22d3ee, transparent); animation: loader-progress .8s ease-in-out infinite; }
+
+  [data-reveal] { opacity: 0; transform: translateY(1rem); transition: opacity .7s ease, transform .7s ease; }
+  [data-reveal].is-visible { opacity: 1; transform: none; }
+
+  @keyframes loader-out { to { opacity: 0; visibility: hidden; } }
+  @keyframes loader-progress { 0%,100% { transform: scaleX(.1); opacity: .3; } 50% { transform: scaleX(1); opacity: 1; } }
+  @keyframes crosshair-spin { to { transform: rotate(180deg); } }
+  @keyframes experience-scan { 0%,100% { transform: translateX(-40%); opacity: 0; } 20%,75% { opacity: 1; } 55% { transform: translateX(40%); } }
+  @keyframes signal-pulse { 0% { opacity: .7; transform: translate(-50%,-50%) scale(.5); } 100% { opacity: 0; transform: translate(-50%,-50%) scale(2.8); } }
+  @keyframes marker-ping { 0% { opacity: .65; transform: scale(.5); } 100% { opacity: 0; transform: scale(3.5); } }
+  @keyframes card-in { from { opacity: .3; transform: translateX(1rem); } to { opacity: 1; transform: translateX(0); } }
+
+  @media (max-width: 850px) {
+    .experience-layout { grid-template-columns: 1fr; }
+    .experience-sidebar { border-right: 0; border-bottom: 1px solid rgba(71,85,105,.5); height: auto; }
+    .timeline-list { display: flex; overflow-x: auto; padding: .7rem; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+    .timeline-node { min-width: 14rem; border-left: 0; border-bottom: 1px solid #334155; scroll-snap-align: start; }
+    .timeline-node:hover, .timeline-node.active { border-left: 0; border-bottom-color: #22d3ee; }
+    .node-line { display: none; }
+    
+    .map-signal { left: 50%; top: 40%; }
+    .panel-caption, .map-coordinates { left: 1rem; }
+    .experience-content { padding-top: 20rem; } 
+    .experience-card { margin: 1rem; width: calc(100% - 2rem); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    [data-reveal] { opacity: 1; transform: none; }
+  }
+</style>
+
+<script define:vars={{ experiences }}>
+  const records = experiences;
+  let activeIndex = 0;
+  let isInitialLoad = true;
+  
+  const $ = (selector) => document.querySelector(selector);
+  const nodes = document.querySelectorAll('.timeline-node');
+  const progress = $('#timeline-progress-bar');
+  const mapVisual = $('#map-visual');
+  const fallbackMarker = $('#fallback-marker');
+  const fallbackPing = $('#fallback-marker-ping');
+  let animationTimer;
+
+  const locations = {
+    quezon: [13.9300, 121.9990, '13.95894 N / 121.88084 E'],
+    manila: [14.5800, 121.1500, '14.59950 N / 120.98420 E'], 
+    'quezon-city': [14.6400, 121.2100, '14.65000 N / 121.04750 E'],
+    makati: [14.4900, 121.1500, '14.55470 N / 121.02440 E'],
+  };
+
+  const MAP_BOUNDS = { north: 21.12, south: 4.38, west: 116.67, east: 126.58 };
+  
+  const projectToMap = (lat, lon) => ({
+    x: ((lon - MAP_BOUNDS.west) / (MAP_BOUNDS.east - MAP_BOUNDS.west)) * 100,
+    y: ((MAP_BOUNDS.north - lat) / (MAP_BOUNDS.north - MAP_BOUNDS.south)) * 100,
+  });
+
+  const renderExperience = (index) => {
+    const record = records[index];
+    activeIndex = index;
+
+    nodes.forEach((node, nodeIndex) => node.classList.toggle('active', nodeIndex === index));
+    $('#timeline-current').textContent = String(index + 1).padStart(2, '0');
+    progress.style.width = `${((index + 1) / records.length) * 100}%`;
+    $('#map-location').textContent = record.region;
+    $('#experience-kind').textContent = record.kind;
+    $('#experience-year').textContent = record.year;
+    $('#experience-title').textContent = record.title;
+    $('#experience-organization').textContent = record.organization;
+    $('#experience-location').textContent = record.location;
+    
+    const logoContainer = $('#experience-logo-container');
+    const logoText = $('#experience-logo');
+    
+    logoContainer.querySelectorAll('img').forEach(img => img.remove());
+    
+    if (record.logos && record.logos.length > 0) {
+      logoText.hidden = true;
+      record.logos.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Organization Logo';
+        img.style.height = '100%';
+        img.style.maxWidth = '3rem';
+        img.style.objectFit = 'contain';
+        logoContainer.appendChild(img);
+      });
+    } else {
+      logoText.hidden = false;
+      logoText.textContent = record.initials;
+    }
+
+    $('#experience-summary').textContent = record.summary;
+    $('#experience-details').innerHTML = record.details.map((detail) => `<li>${detail}</li>`).join('');
+    
+    // DYNAMIC COLOR PALETTE FOR SKILLS
+    const skillColors = [
+      { text: '#38bdf8', border: 'rgba(56, 189, 248, 0.3)', bg: 'rgba(56, 189, 248, 0.1)' },   // Cyan
+      { text: '#a78bfa', border: 'rgba(167, 139, 250, 0.3)', bg: 'rgba(167, 139, 250, 0.1)' }, // Purple
+      { text: '#34d399', border: 'rgba(52, 211, 153, 0.3)', bg: 'rgba(52, 211, 153, 0.1)' },   // Emerald
+      { text: '#fbbf24', border: 'rgba(251, 191, 36, 0.3)', bg: 'rgba(251, 191, 36, 0.1)' },   // Amber
+      { text: '#f472b6', border: 'rgba(244, 114, 182, 0.3)', bg: 'rgba(244, 114, 182, 0.1)' }    // Pink
+    ];
+
+    $('#experience-skills').innerHTML = record.skills.map((skill, i) => {
+      const color = skillColors[i % skillColors.length];
+      return `<span style="color:${color.text}; border-color:${color.border}; background:${color.bg}">${skill}</span>`;
+    }).join('');
+    
+    const [latitude, longitude, coordinates] = locations[record.marker] ?? locations.manila;
+    $('#map-coordinates-value').textContent = coordinates;
+    const { x, y } = projectToMap(latitude, longitude);
+
+    clearTimeout(animationTimer);
+
+    const zoomIntoPin = () => {
+      fallbackMarker.style.left = `${x}%`;
+      fallbackMarker.style.top = `${y}%`;
+      fallbackPing.style.left = `${x}%`;
+      fallbackPing.style.top = `${y}%`;
+      
+      const isMobile = window.innerWidth <= 850;
+      const targetX = isMobile ? '50vw' : '38vw';
+      const targetY = isMobile ? '40vh' : '50vh';
+      const zoomScale = 3.8;
+      
+      mapVisual.style.transform = `translate(calc(${targetX} - ${x}% * ${zoomScale}), calc(${targetY} - ${y}% * ${zoomScale})) scale(${zoomScale})`;
+    };
+
+    if (isInitialLoad) {
+      const isMobile = window.innerWidth <= 850;
+      const targetX = isMobile ? '50vw' : '38vw';
+      const targetY = isMobile ? '40vh' : '50vh';
+      const initialScale = 1.2;
+      
+      mapVisual.style.transform = `translate(calc(${targetX} - 50% * ${initialScale}), calc(${targetY} - 50% * ${initialScale})) scale(${initialScale})`;
+      
+      animationTimer = window.setTimeout(() => {
+        zoomIntoPin();
+        isInitialLoad = false;
+      }, 1400); 
+    } else {
+      const isMobile = window.innerWidth <= 850;
+      const targetX = isMobile ? '50vw' : '38vw';
+      const targetY = isMobile ? '40vh' : '50vh';
+      const outScale = 1.8;
+      
+      mapVisual.style.transform = `translate(calc(${targetX} - ${x}% * ${outScale}), calc(${targetY} - ${y}% * ${outScale})) scale(${outScale})`;
+      
+      animationTimer = window.setTimeout(zoomIntoPin, 800);
+    }
+
+    $('.experience-card').animate(
+      [{ opacity: .35, transform: 'translateX(1rem)' }, { opacity: 1, transform: 'translateX(0)' }],
+      { duration: 350, easing: 'cubic-bezier(.2,.8,.2,1)' }
+    );
+  };
+
+  nodes.forEach((node) => node.addEventListener('click', () => renderExperience(Number(node.dataset.index))));
+  $('#previous-button').addEventListener('click', () => renderExperience((activeIndex - 1 + records.length) % records.length));
+  $('#next-button').addEventListener('click', () => renderExperience((activeIndex + 1) % records.length));
+
+  const revealObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
+  }), { threshold: .1 });
+  document.querySelectorAll('[data-reveal]').forEach((item) => revealObserver.observe(item));
+
+  renderExperience(activeIndex);
+</script>
